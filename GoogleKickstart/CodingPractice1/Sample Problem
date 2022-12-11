@@ -1,0 +1,8 @@
+cases = int(input())
+for i in range(1, cases+1):
+    bags, children = str(input()).split(" ")
+    bags, children = int(bags), int(children)
+    pieces_of_candy = []
+    for number in str(input()).split(" "):
+        pieces_of_candy.append(int(number))
+    print(f"Case #{i}: {sum(pieces_of_candy) % children}")

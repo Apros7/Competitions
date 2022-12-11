@@ -1,0 +1,13 @@
+cases = int(input())
+vowels = ["a", "e", "i", "o", "u"]
+for case in range(1, cases + 1):
+    kingdom = str(input())
+    last_letter = (kingdom.lower())[-1]
+    if last_letter == "y":
+        print(f"Case #{case}: {kingdom} is ruled by nobody.")
+    elif last_letter in vowels:
+        print(f"Case #{case}: {kingdom} is ruled by Alice.")
+    else: 
+        print(f"Case #{case}: {kingdom} is ruled by Bob.")
+    
+

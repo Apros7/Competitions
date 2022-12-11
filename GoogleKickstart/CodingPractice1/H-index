@@ -1,0 +1,25 @@
+def score(x, A):
+    return sum(A[x:])
+
+def find_h_index(N, citations):
+    ans = []
+    A = [0] * (N + 1)
+    h_index = 0
+    for i in range(N):
+        A[N if citations[i] > N else citations[i]] += 1
+        j = i+1
+        while j > h_index:
+            if (score(j, A) >= j):
+                h_index = j
+                break
+            j -= 1
+        ans.append(h_index)
+    return ans
+
+cases = int(input())
+for i in range(1, cases+1):
+    papers = int(input())
+    citations = [int(x) for x in str(input()).split()]
+    h_index_scores = find_h_index(papers, citations)   
+    print(f"Case #{i}: ", end = "")
+    print(*h_index_scores)
