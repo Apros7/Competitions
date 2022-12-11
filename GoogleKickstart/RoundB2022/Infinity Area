@@ -1,0 +1,14 @@
+import math
+
+cases = int(input())
+for case in range(cases):
+    R, A, B = [int(x) for x in str(input()).split()]
+    current_radius = R
+    draw_right_circle = True
+    ans = R*R
+    while R > 0:
+        R *= A
+        ans += R*R
+        R /= B
+        ans += R*R
+    print(f"Case #{case+1}: {ans*math.pi}")
