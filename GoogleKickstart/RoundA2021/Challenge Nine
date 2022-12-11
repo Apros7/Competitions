@@ -1,0 +1,10 @@
+cases = int(input())
+for x in range(1, cases+1):
+    test_number = str(input())
+    possible_numbers = []
+    for i in range(len(test_number)+1):
+        for number in range(10):
+            new_number = int(test_number[:i]+str(number)+test_number[i:])
+            if new_number % 9 == 0 and str(new_number)[0] != 0:
+                possible_numbers.append(new_number)
+    print(f"Case #{x}: {min(possible_numbers)}")

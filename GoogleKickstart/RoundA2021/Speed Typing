@@ -1,0 +1,19 @@
+cases = int(input())
+for x in range(1,cases+1):
+    I = str(input())
+    P = str(input())
+    pi = 0
+    Ii = 0
+    for i in range(len(P)):
+        if Ii > len(I)-1:
+            break
+        elif P[pi] == I[Ii]:
+            pi += 1
+            Ii += 1
+        else:
+            pi += 1
+    if Ii < len(I):
+        print(f"Case #{x}: IMPOSSIBLE")
+    else: 
+        print(f"Case #{x}: {len(P)-len(I)}")
+        
