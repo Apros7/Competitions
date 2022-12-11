@@ -1,0 +1,23 @@
+
+T = int(input())
+for case in range(1,T+1):
+    N = int(input())
+    students = [int(student) for student in input().split()]
+    mentors = []
+    for i in range(N):
+        mentor = -1
+        student = students[i]
+        #print(f"Student = {student}")
+        for j in range(N):
+            potential_mentor = students[j]
+            #print(f"Potential_mentor = {potential_mentor}")
+            if j == i:
+                continue
+            elif potential_mentor > (2 * student):
+                continue
+            elif potential_mentor > mentor:
+                mentor = potential_mentor
+            #print(f"Mentor = {mentor}")
+        mentors.append(mentor)
+    print(f"Case #{case}: ", end="")
+    print(*mentors)
