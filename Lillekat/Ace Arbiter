@@ -1,0 +1,74 @@
+number_of_lines = int(input())
+first_values = input()
+score_x, score_y = int(first_values.split("-")[0]),int(first_values.split("-")[1])
+score_y = 0
+error = False
+reversed = True
+for i in range(2,number_of_lines+1):
+    new_score_x, new_score_y = input().split("-")
+    new_score_x, new_score_y = int(new_score_x), int(new_score_y)
+    if not reversed:
+        if new_score_y != score_y:
+            error, value = True, i
+            break
+        if (new_score_x != score_x and new_score_x != score_x+1):
+            error, value = True, i
+            break
+    if reversed:
+        if new_score_y != score_x:
+            error, value = True, i
+            break
+        if not (new_score_x == score_y or new_score_x == score_y+1):
+            error, value = True, i
+            break
+    score_x, score_y = new_score_x, new_score_y
+    if reversed:
+        reversed = False
+    else: 
+        reversed = True
+if error:
+    print(f"error {value}")
+else:
+    print("ok")
+
+
+
+
+
+    number_of_lines = int(input())
+starting_values = input()
+score_x, score_y = int(starting_values.split("-")[0]), int(starting_values.split("-")[1])
+changed_serv = False
+error = False
+for i in range(2,number_of_lines+1):
+    new_score_x, new_score_y = input().split("-")
+    new_score_x, new_score_y = int(new_score_x), int(new_score_y)
+    if (new_score_x == score_x and new_score_y == score_y) or (new_score_x == score_y and new_score_y == score_x):
+        continue
+    if (new_score_x + new_score_y - 1) % 2 == 0:
+        changed_serv = True
+    else: 
+        changed_serv = False
+    if (new_score_x == 11 or new_score_y == 11) and (new_score_x != score_x or new_score_y != score_y):
+        error, value = True, i
+        break
+    if not changed_serv:
+        if (new_score_y != score_y and new_score_y != score_y+1) and new_score_x == score_x:
+            error, value = True, i
+            break
+        if (new_score_x != score_x and new_score_x != score_x+1) and new_score_y == score_y:
+            error, value = True, i
+            break
+    if changed_serv:
+        if (new_score_y != score_x and new_score_y != score_x+1) and new_score_x == score_y:
+            error, value = True, i
+            break
+        if (new_score_x != score_y and new_score_x != score_y+1) and new_score_y == score_x:
+            error, value = True, i
+            break
+    score_x, score_y = new_score_x, new_score_y
+if error:
+    print(f"error {value}")
+else:
+    print("ok")
+    

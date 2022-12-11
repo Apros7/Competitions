@@ -1,0 +1,36 @@
+number_of_lines = int(input())
+line = input()
+alice, bob = list(map(int,line.split("-")))
+alice_serv = False
+counter = 0
+error = False
+
+for i in range(2,number_of_lines+1):
+    new_x, new_y = list(map(int,input().split("-")))
+    if alice_serv:
+        alice_new = new_x
+        bob_new = new_y
+    else:
+        alice_new = new_y
+        bob_new = new_x
+        
+    if alice_new == alice and bob_new == bob:
+        continue
+    else:
+        counter += 1
+    if (alice_new - alice) < 0 or (alice_new - alice) > 1 or (bob_new - bob) < 0 or (bob_new - bob) > 1:
+        error = True
+        break
+    if (new_x == 11 or new_y == 11) and (alice_new != alice or bob_new != bob):
+        error = True
+        break
+
+    if counter % 2 == 0:
+        alice_serv = not alice_serv
+
+    alice, bob = alice_new, bob_new
+
+if not error:
+    print("ok")
+else:
+    print(f"error {i}")

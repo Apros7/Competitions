@@ -1,0 +1,4 @@
+number_of_scooters = int(input())
+
+line = input()
+robot_x, robot_y, depot_x, depot_y = [int(i) for i in line.split()]
